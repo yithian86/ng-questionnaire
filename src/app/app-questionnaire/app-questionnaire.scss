@@ -1,0 +1,6 @@
+@import "src/app/theme/main.scss";
+
+.AppQuestionnaire {
+  @extend .AppWidgetComponent;
+  @extend .AppWidgetComponent--fullScreen;
+}

@@ -1,0 +1,28 @@
+// BASE COLORS
+$background: #FFF;
+$primary-base: #5f9ea0;
+$secondary-base: #008fb3;
+
+:root {
+  // PRIMARY PALETTE MAP
+  --primary-lightest: #{mix(#FFF, $primary-base, 80)};
+  --primary-lighter: #{mix(#FFF, $primary-base, 60)};
+  --primary-light: #{mix(#FFF, $primary-base, 40)};
+  --primary-medium-light: #{mix(#FFF, $primary-base, 20)};
+  --primary-base: #{$primary-base};
+  --primary-medium-dark: #{mix(#000, $primary-base, 20)};
+  --primary-dark: #{mix(#000, $primary-base, 40)};
+  --primary-darker: #{mix(#000, $primary-base, 60)};
+  --primary-darkest: #{mix(#000, $primary-base, 80)};
+
+  // SECONDARY PALETTE MAP
+  --secondary-lightest: #{mix(#FFF, $secondary-base, 80)};
+  --secondary-lighter: #{mix(#FFF, $secondary-base, 60)};
+  --secondary-light: #{mix(#FFF, $secondary-base, 40)};
+  --secondary-medium-light: #{mix(#FFF, $secondary-base, 20)};
+  --secondary-base: #{$secondary-base};
+  --secondary-medium-dark: #{mix(#000, $secondary-base, 20)};
+  --secondary-dark: #{mix(#000, $secondary-base, 40)};
+  --secondary-darker: #{mix(#000, $secondary-base, 60)};
+  --secondary-darkest: #{mix(#000, $secondary-base, 80)};
+}

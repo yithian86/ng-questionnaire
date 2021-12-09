@@ -1,0 +1,46 @@
+@import "src/app/theme/main.scss";
+
+.AppComponent {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  &__header, &__footer {
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--primary-base);
+    color: white;
+    z-index: 10;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex: 1;
+
+    & * {
+      display: flex;
+      flex: 1;
+    }
+
+    router-outlet,
+    app-spinner {
+      flex: 0;
+    }
+  }
+
+  &__footerText {}
+
+  &__footerLinks {
+    display: flex;
+
+    & > * {
+      margin: 0 4px;
+      white-space: nowrap;
+    }
+  }
+}

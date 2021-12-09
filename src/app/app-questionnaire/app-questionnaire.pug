@@ -1,0 +1,8 @@
+.AppQuestionnaire
+  app-spinner(
+    *ngIf="isWidgetWaitingState()",
+    [fullScreenMode]="isWidgetWaitingState()"
+  )
+
+  .AppQuestionnaire__content(*ngIf="!isWidgetInitState()")
+    div Quescionniah!

@@ -1,0 +1,43 @@
+@import "src/app/theme/main.scss";
+
+.AppLandingPage {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+
+  // USER INFO SECTION
+  &__userInfo {
+    @extend .AppWidgetComponent;
+    flex-direction: column;
+    flex: 2;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+
+  &__startQuestionnaireCta {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--secondary-base);
+    border-radius: 4px;
+    color: white;
+    width: max-content;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--secondary-light);
+    }
+  }
+
+
+  // USER STATS SECTION
+  &__userStats {
+    @extend .AppWidgetComponent;
+    flex-direction: column;
+    flex: 1;
+  }
+}

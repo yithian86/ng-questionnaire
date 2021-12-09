@@ -17,6 +17,11 @@
     z-index: 10;
   }
 
+  &__headerText {
+    margin-left: 16px;
+    font-size: 24px;
+  }
+
   &__content {
     position: relative;
     display: flex;

@@ -1,8 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppQuestionnaireComponent } from '../app-questionnaire/app-questionnaire.component';
-import { CommonComponentsModule } from '../common-components/common-components.module';
+import { SharedModule } from '../shared.module';
 import { AppLandingPageComponent } from './app.landingpage.component';
 
 @NgModule({
@@ -11,10 +9,11 @@ import { AppLandingPageComponent } from './app.landingpage.component';
     AppQuestionnaireComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    CommonComponentsModule
+    SharedModule
   ],
-  exports: [AppLandingPageComponent]
+  exports: [
+    AppLandingPageComponent,
+    AppQuestionnaireComponent
+  ]
 })
 export class AppLandingPageModule { }

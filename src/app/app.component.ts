@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslationService } from './translation.service';
+import { environment } from 'src/environments/environment';
+import { AppTranslationService } from './app.translation.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,13 @@ export class AppComponent implements OnInit, OnChanges {
 
   constructor(
     private router: Router,
-    private translationService: TranslationService
+    private translationService: AppTranslationService
   ) {
   }
 
   ngOnInit(): void {
-    this.translationService.init('en-GB');
+    const locale: string = localStorage.getItem('locale') || environment.defaultLocale;
+    this.translationService.init(locale);
   }
 
   ngOnChanges(changes: SimpleChanges): void {}

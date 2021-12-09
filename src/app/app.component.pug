@@ -1,6 +1,8 @@
 .AppComponent
   .AppComponent__header
     .AppComponent__headerText {{ pageTitle | translate }}
+    nav.AppComponent__headerTrayIcons
+      .AppComponent__icon.fa-solid.fa-house(routerLink="/")
 
   .AppComponent__content
     router-outlet

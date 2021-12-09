@@ -4,19 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppLandingPageModule } from './app-landingpage/app.landingpage.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslationService } from './translation.service';
+import { AppTranslationService } from './app.translation.service';
 import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared.module';
-
-export function translationInitializer(translationService: TranslationService) {
-  return function () {
-    return translationService.init('en');
-  };
-}
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
-}
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,10 +16,10 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     SharedModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en-GB',
+      defaultLanguage: environment.defaultLocale,
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
+        useFactory: (AppTranslationService.createTranslateLoader),
         deps: [HttpClient]
       }
     }),
@@ -38,8 +29,8 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: translationInitializer,
-      deps: [TranslationService],
+      useFactory: AppTranslationService.translationInitializer,
+      deps: [AppTranslationService],
       multi: true
    }
   ],

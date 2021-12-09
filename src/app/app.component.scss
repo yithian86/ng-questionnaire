@@ -7,7 +7,6 @@
   flex-direction: column;
 
   &__header, &__footer {
-    height: 42px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,11 +16,17 @@
     z-index: 10;
   }
 
+  // HEADER
+  &__header {
+    height: 42px;
+  }
+
   &__headerText {
     margin-left: 16px;
     font-size: 24px;
   }
 
+  // CONTENT
   &__content {
     position: relative;
     display: flex;
@@ -36,6 +41,11 @@
     app-spinner {
       flex: 0;
     }
+  }
+
+  // FOOTER
+  &__footer {
+    height: 24px;
   }
 
   &__footerText {}

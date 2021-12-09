@@ -1,0 +1,14 @@
+{
+  "/yithian86/api/questionnaire": {
+    "target": "https://localhost:3001",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/yithian86/**": {
+    "target": "https://localhost:4200",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "sectionId": 100,
+  "questions": [
+    {
+      "questionId": 1,
+      "answerType": "RADIOBUTTON",
+      "answer": 100002,
+      "title": "Are you hungry?",
+      "subTitle": "Do <strong>you</strong> want some cheese?",
+      "options": [
+        {
+          "optionId": 100001,
+          "optionText": "Yep"
+        },
+        {
+          "optionId": 100002,
+          "optionText": "No I want pizza."
+        },
+        {
+          "optionId": 100003,
+          "optionText": "No I am cheese."
+        },
+        {
+          "optionId": 100004,
+          "optionText": "What do you want from me?"
+        }
+      ]
+    }
+  ]
+}

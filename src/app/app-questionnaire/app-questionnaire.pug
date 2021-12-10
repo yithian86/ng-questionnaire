@@ -1,8 +1,32 @@
 .AppQuestionnaire
+  //- SKELETON (INIT STATE)
+
+
+  //- SPINNER (WAITING STATE)
   app-spinner(
     *ngIf="isWidgetWaitingState()",
     [fullScreenMode]="isWidgetWaitingState()"
   )
 
+
+  //- WIDGET CONTENT (READY STATE)
   .AppQuestionnaire__content(*ngIf="!isWidgetInitState()")
-    div Quescionniah!
+    form.AppQuestionnaire__dynamicForm([formGroup]="questionnaireFormGroup")
+      div(*ngFor="let question of questionnaire.questions")
+
+        div(
+          *ngIf="!!question.text",
+          [innerHtml]="question.text"
+        )
+
+        div(
+          *ngIf="!!question.description",
+          [innerHtml]="question.description"
+        )
+
+        //- Form control
+        ng-container(
+          app-dynamic-field,
+          [config]="question",
+          [group]="questionnaireFormGroup"
+        )

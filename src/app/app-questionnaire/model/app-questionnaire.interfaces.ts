@@ -1,0 +1,35 @@
+import { FormGroup, ValidatorFn } from "@angular/forms";
+import { FIELD_TYPE } from "./app-questionnaire.constants";
+
+export namespace AppQuestionnaireTypings {
+
+  export interface IField {
+    config: IQuestion,
+    group: FormGroup,
+    currency?: string
+  }
+
+  export interface IOption {
+    id: string;
+    text: string;
+  }
+
+  export interface IQuestionnaire {
+    sectionId: string,
+    questions: Array<IQuestion>
+  }
+
+  export interface IQuestion {
+    id: string,
+    type: FIELD_TYPE,
+    answer: number,
+    text: string,
+    description: string,
+    options: Array<IOption>;
+  }
+
+  export interface IOption {
+    optionId: string,
+    optionText: string
+  }
+}

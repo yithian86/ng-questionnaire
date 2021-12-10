@@ -1,13 +1,14 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AppLandingPageModule } from './app-landingpage/app.landingpage.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { AppTranslationService } from './app.translation.service';
 import { HttpClient } from '@angular/common/http';
-import { SharedModule } from './shared.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
 import { environment } from 'src/environments/environment';
+import { AppTranslationService } from './app.translation.service';
+import { SharedModule } from './shared.module';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppLandingPageModule } from './app-landingpage/app.landingpage.module';
+import { AppQuestionnaireModule } from './app-questionnaire/app.questionnaire.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment';
       }
     }),
     AppRoutingModule,
-    AppLandingPageModule
+    AppLandingPageModule,
+    AppQuestionnaireModule
   ],
   providers: [
     {

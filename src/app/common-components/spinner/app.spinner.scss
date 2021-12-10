@@ -1,6 +1,7 @@
 @import "src/app/theme/main.scss";
 
 .AppSpinner {
+  position: absolute;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -19,7 +20,7 @@
 
   .AppSpinner__wrapper {
     display: inline-block;
-    position: relative;
+    // position: relative;
     width: 80px;
     height: 80px;
     top: -40px;

@@ -11,15 +11,20 @@
 
   //- WIDGET CONTENT (READY STATE)
   .AppQuestionnaire__content(*ngIf="!isWidgetInitState()")
+
+    //- Current step info
+    .AppQuestionnaire__stepInfo {{getStepInfo()}}
+
     form([formGroup]="questionnaireFormGroup")
       .AppQuestionnaire__dynamicForm(*ngFor="let question of questionnaire.steps[currentStepIndex].questions; let i = index")
-        .AppQuestionnaire__stepInfo {{getStepInfo()}}
 
+        //- Question text
         .AppQuestionnaire__questionText(
           *ngIf="!!question.text",
           [innerHtml]="question.text"
         )
 
+        //- Question description
         .AppQuestionnaire__questionDescription(
           *ngIf="!!question.description",
           [innerHtml]="question.description"
@@ -33,6 +38,7 @@
             [group]="questionnaireFormGroup"
           )
 
+    //- NAVIGATION BUTTONS
     .AppQuestionnaire__navigationButtons
       .AppQuestionnaire__ctaPrevious(
         [ngClass]="{'is-disabled': currentStepIndex === 0}",

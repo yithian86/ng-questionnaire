@@ -8,7 +8,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
   color: var(--tertiary-medium-dark);
 
-  &__dynamicForm {
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,21 +19,35 @@
     color: var(--tertiary-base);
   }
 
+  &__dynamicForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px;
+  }
+
   &__questionText {
     @include BigText;
-    padding: 16px 0;
+    padding: 8px 0;
   }
 
   &__questionDescription {
-    @include NormalText;
+    @include SmallText;
+    padding: 8px 0;
   }
 
   &__formField {
     @include NormalText;
-    margin: 24px;
-    padding: 16px;
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #FFF;
     border: 1px solid var(--primary-lighter);
+
+    > * {
+      flex: 1;
+    }
   }
 
 
@@ -47,14 +61,14 @@
       width: 80px;
       padding: 8px;
       margin: 0 8px;
-      background-color: var(--secondary-base);
+      background-color: var(--primary-base);
       border-radius: 4px;
       color: #FFF;
       cursor: pointer;
       white-space: nowrap;
 
       &:hover {
-        background-color: var(--secondary-light);
+        background-color: var(--primary-medium-light);
       }
 
       &.is-disabled {

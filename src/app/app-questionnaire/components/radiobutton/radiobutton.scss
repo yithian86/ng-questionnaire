@@ -1,12 +1,31 @@
 .AppQuestionnaire {
+  &__radiobuttonOptions {
+    flex: 1;
+  }
 
   &__radiobuttonOption {
+    height: 64px;
     display: flex;
     align-items: center;
-    padding: 8px 0;
+    justify-content: space-between;
+    flex: 1;
+    padding: 0 12px;
+
+    &:not(&:last-child) {
+      border-bottom: 1px solid var(--primary-lightest);
+    }
   }
 
   &__radiobuttonInput {
     margin-right: 8px;
+    cursor: pointer;
+  }
+
+  &__radiobuttonText {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
   }
 }

@@ -11,22 +11,35 @@
 
   //- WIDGET CONTENT (READY STATE)
   .AppQuestionnaire__content(*ngIf="!isWidgetInitState()")
-    form.AppQuestionnaire__dynamicForm([formGroup]="questionnaireFormGroup")
-      div(*ngFor="let question of questionnaire.questions")
+    form([formGroup]="questionnaireFormGroup")
+      .AppQuestionnaire__dynamicForm(*ngFor="let question of questionnaire.steps[currentStepIndex].questions; let i = index")
+        .AppQuestionnaire__stepInfo {{getStepInfo()}}
 
-        div(
+        .AppQuestionnaire__questionText(
           *ngIf="!!question.text",
           [innerHtml]="question.text"
         )
 
-        div(
+        .AppQuestionnaire__questionDescription(
           *ngIf="!!question.description",
           [innerHtml]="question.description"
         )
 
         //- Form control
-        ng-container(
-          app-dynamic-field,
-          [config]="question",
-          [group]="questionnaireFormGroup"
-        )
+        .AppQuestionnaire__formField
+          ng-container(
+            app-dynamic-field,
+            [config]="question",
+            [group]="questionnaireFormGroup"
+          )
+
+    .AppQuestionnaire__navigationButtons
+      .AppQuestionnaire__ctaPrevious(
+        [ngClass]="{'is-disabled': currentStepIndex === 0}",
+        (click)="updateStep(-1)"
+      ) << Prev
+
+      .AppQuestionnaire__ctaNext(
+        [ngClass]="{'is-disabled': currentStepIndex === questionnaire.steps.length - 1}",
+        (click)="updateStep(1)"
+      ) Next >>

@@ -1,28 +1,64 @@
 {
-  "sectionId": 100,
-  "questions": [
+  "steps": [
     {
-      "id": "1",
-      "type": "RADIOBUTTON",
-      "answer": "100002",
-      "text": "Are you hungry?",
-      "description": "Do <strong>you</strong> want some cheese?",
-      "options": [
+      "id": 1,
+      "name": "Something about yourself",
+      "questions": [
         {
-          "optionId": "100001",
-          "optionText": "Yep"
-        },
+          "id": "1",
+          "type": "RADIOBUTTON",
+          "answer": "100002",
+          "text": "Are you hungry?",
+          "description": "Do <strong>you</strong> want some cheese?",
+          "options": [
+            {
+              "optionId": "100001",
+              "optionText": "Yep"
+            },
+            {
+              "optionId": "100002",
+              "optionText": "No I want pizza."
+            },
+            {
+              "optionId": "100003",
+              "optionText": "No I am cheese."
+            },
+            {
+              "optionId": "100004",
+              "optionText": "What do you want from me?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Job experience",
+      "questions": [
         {
-          "optionId": "100002",
-          "optionText": "No I want pizza."
-        },
-        {
-          "optionId": "100003",
-          "optionText": "No I am cheese."
-        },
-        {
-          "optionId": "100004",
-          "optionText": "What do you want from me?"
+          "id": "1",
+          "type": "RADIOBUTTON",
+          "answer": "100002",
+          "text": "Which one of these jobs have you done?",
+          "description": "Do <strong>you</strong> want some cheese?",
+          "options": [
+            {
+              "optionId": "100001",
+              "optionText": "Miner"
+            },
+            {
+              "optionId": "100002",
+              "optionText": "Housewife/Househusband"
+            },
+            {
+              "optionId": "100003",
+              "optionText": "I am cheese"
+            },
+            {
+              "optionId": "100004",
+              "optionText": "None of the above"
+            }
+          ]
         }
       ]
     }

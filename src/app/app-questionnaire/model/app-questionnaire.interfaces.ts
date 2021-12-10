@@ -15,7 +15,12 @@ export namespace AppQuestionnaireTypings {
   }
 
   export interface IQuestionnaire {
-    sectionId: string,
+    id: string,
+    steps: Array<IStep>
+  }
+
+  export interface IStep {
+    id: string,
     questions: Array<IQuestion>
   }
 

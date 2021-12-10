@@ -2,5 +2,8 @@
   "pages": {
     "landingpage": "Home",
     "questionnaire": "Questionnaire"
+  },
+  "questionnaire": {
+    "step.info.text": "Step {{currentStep}} of {{totalSteps}}"
   }
 }

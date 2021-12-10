@@ -6,7 +6,8 @@ import { AppAbstractFieldComponent } from "../abstact-field/abstract-field.compo
 
 @Component({
   selector: 'app-radiobutton',
-  templateUrl: './radiobutton.pug'
+  templateUrl: 'radiobutton.pug',
+  styleUrls: ['radiobutton.scss']
 })
 export class RadiobuttonComponent extends AppAbstractFieldComponent implements WidgetTypings.IField, OnInit {
   override config: WidgetTypings.IQuestion;

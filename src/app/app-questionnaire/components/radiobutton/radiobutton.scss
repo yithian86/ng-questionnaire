@@ -1,0 +1,12 @@
+.AppQuestionnaire {
+
+  &__radiobuttonOption {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  &__radiobuttonInput {
+    margin-right: 8px;
+  }
+}

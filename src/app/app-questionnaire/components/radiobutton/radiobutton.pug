@@ -1,6 +1,6 @@
-.AppQuestionnaire__options([formGroup]="group")
-  .AppQuestionnaire__option(*ngFor="let option of config.options; let i = index")
-    input.AppQuestionnaire__radioInput(
+.AppQuestionnaire__radiobuttonOptions([formGroup]="group")
+  .AppQuestionnaire__radiobuttonOption(*ngFor="let option of config.options; let i = index")
+    input.AppQuestionnaire__radiobuttonInput(
       type="radio",
       [attr.id]="getRadiobuttonId(i)",
       [attr.disabled]="isDisabled",
@@ -8,7 +8,7 @@
       [formControlName]="config.id"
     )
 
-    label.AppQuestionnaire__optionText(
+    label.AppQuestionnaire__radiobuttonText(
       [attr.for]="getRadiobuttonId(i)",
       [innerHtml]="option.optionText"
     )

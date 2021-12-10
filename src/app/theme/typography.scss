@@ -1,0 +1,49 @@
+$default-font-size: 16;
+
+$huge-text: 42;
+$bigger-text: 32;
+$big-text: 24;
+$normal-text: 16;
+$small-text: 14;
+$mini-text: 12;
+$micro-text: 11;
+$nano-text: 9;
+
+
+// GET FONT SIZE RELATED TO MEDIA QUERIES
+//----------------------------------------------------------------------
+@mixin font-size($size) {
+  font-size: rem-calc($size, $default-font-size);
+}
+
+@mixin HugeText {
+  @include font-size($huge-text);
+}
+
+@mixin BiggerText {
+  @include font-size($bigger-text);
+}
+
+@mixin BigText {
+  @include font-size($big-text);
+}
+
+@mixin NormalText {
+  @include font-size($normal-text);
+}
+
+@mixin SmallText {
+  @include font-size($small-text);
+}
+
+@mixin MiniText {
+  @include font-size($mini-text);
+}
+
+@mixin MicroText {
+  @include font-size($micro-text);
+}
+
+@mixin NanoText {
+  @include font-size($nano-text);
+}

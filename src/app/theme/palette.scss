@@ -2,6 +2,8 @@
 $background: #FFF;
 $primary-base: #5f9ea0;
 $secondary-base: #008fb3;
+$tertiary-base: #4f748e;
+$neutral-base: #e6e6e6;
 
 :root {
   // PRIMARY PALETTE MAP
@@ -25,4 +27,25 @@ $secondary-base: #008fb3;
   --secondary-dark: #{mix(#000, $secondary-base, 40)};
   --secondary-darker: #{mix(#000, $secondary-base, 60)};
   --secondary-darkest: #{mix(#000, $secondary-base, 80)};
+
+  // TERTIARY PALETTE MAP
+  --tertiary-lightest: #{mix(#FFF, $tertiary-base, 80)};
+  --tertiary-lighter: #{mix(#FFF, $tertiary-base, 60)};
+  --tertiary-light: #{mix(#FFF, $tertiary-base, 40)};
+  --tertiary-medium-light: #{mix(#FFF, $tertiary-base, 20)};
+  --tertiary-base: #{$tertiary-base};
+  --tertiary-medium-dark: #{mix(#000, $tertiary-base, 20)};
+  --tertiary-dark: #{mix(#000, $tertiary-base, 40)};
+  --tertiary-darker: #{mix(#000, $tertiary-base, 60)};
+  --tertiary-darkest: #{mix(#000, $tertiary-base, 80)};
+
+  // NEUTRAL PALETTE MAP
+  --neutral-lightest: #{mix(#FFF, $neutral-base, 30)};
+  --neutral-light: #{mix(#FFF, $neutral-base, 20)};
+  --neutral-medium-light: #{mix(#FFF, $neutral-base, 10)};
+  --neutral-base: $neutral-base;
+  --neutral-medium-dark: #{mix(#000, $neutral-base, 10)};
+  --neutral-dark: #{mix(#000, $neutral-base, 20)};
+  --neutral-darker: #{mix(#000, $neutral-base, 40)};
+  --neutral-darkest: #{mix(#000, $neutral-base, 60)};
 }

@@ -3,4 +3,65 @@
 .AppQuestionnaire {
   @extend .AppWidgetComponent;
   @extend .AppWidgetComponent--fullScreen;
+
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+  color: var(--tertiary-medium-dark);
+
+  &__dynamicForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__stepInfo {
+    @include SmallText;
+    color: var(--tertiary-base);
+  }
+
+  &__questionText {
+    @include BigText;
+    padding: 16px 0;
+  }
+
+  &__questionDescription {
+    @include NormalText;
+  }
+
+  &__formField {
+    @include NormalText;
+    margin: 24px;
+    padding: 16px;
+    background-color: #FFF;
+    border: 1px solid var(--primary-lighter);
+  }
+
+
+  &__navigationButtons {
+    display: flex;
+    justify-content: center;
+
+    > * {
+      display: flex;
+      justify-content: center;
+      width: 80px;
+      padding: 8px;
+      margin: 0 8px;
+      background-color: var(--secondary-base);
+      border-radius: 4px;
+      color: #FFF;
+      cursor: pointer;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: var(--secondary-light);
+      }
+
+      &.is-disabled {
+        pointer-events: none;
+        background-color: var(--neutral-medium-dark);
+        cursor: default;
+      }
+    }
+  }
 }

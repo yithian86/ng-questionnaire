@@ -1,77 +1,11 @@
+include app-questionnaire-skeleton.partial.pug
+
 .AppQuestionnaire
 
   //- SKELETON (INIT STATE)
   //- div((click)="isWidgetInitState() ? setWidgetReadyState() : setWidgetInitState()") cliquez moi!
   .AppQuestionnaire__skeletonWrapper(*ngIf="isWidgetInitState()")
-    .AppSkeleton__text.AppSkeleton__text--tiny
-
-    // ---- First card
-    .AppSkeleton__spacer.AppSkeleton__spacer--bigger
-    .AppSkeleton__text.AppSkeleton__text--longer
-    .AppSkeleton
-      .AppSkeleton__spacer.AppSkeleton__spacer--normal
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text.AppSkeleton__text--small
-
-      .AppSkeleton__spacer.AppSkeleton__spacer--big
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text.AppSkeleton__text--long
-
-      .AppSkeleton__spacer.AppSkeleton__spacer--big
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text.AppSkeleton__text--tiny
-
-      .AppSkeleton__spacer.AppSkeleton__spacer--big
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text.AppSkeleton__text--tiny
-
-      .AppSkeleton__spacer.AppSkeleton__spacer--normal
-
-
-    // ---- Second card
-    .AppSkeleton__spacer.AppSkeleton__spacer--big
-    .AppSkeleton__text.AppSkeleton__text--short
-    .AppSkeleton
-      .AppSkeleton__spacer.AppSkeleton__spacer--normal
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text.AppSkeleton__text--long
-
-      .AppSkeleton__spacer.AppSkeleton__spacer--big
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text.AppSkeleton__text--tiny
-
-      .AppSkeleton__spacer.AppSkeleton__spacer--big
-      .AppSkeleton__contentWrapper
-        .AppSkeleton__figure
-          .AppSkeleton__contentFigure.AppSkeleton__contentFigure--circleSmall
-
-        .AppSkeleton__body
-          .AppSkeleton__text
-      .AppSkeleton__spacer.AppSkeleton__spacer--normal
+    +questionnaire-skeleton
 
 
   //- SPINNER (WAITING STATE)

@@ -48,11 +48,21 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
       })
   }
 
+  public getStepBarValue = (): number => {
+    return (this.currentStepIndex + 1) / this.questionnaire?.steps?.length;
+  }
+
   public getStepInfo = (): string => {
-    return this.translateService.instant('questionnaire.step.info.text', {
+    let stepInfo: string = this.translateService.instant('questionnaire.step.info.text', {
       currentStep: this.currentStepIndex + 1,
       totalSteps: this.questionnaire.steps.length
     });
+
+    if (!!this.questionnaire?.steps[this.currentStepIndex]?.name) {
+      stepInfo += ` - ${this.questionnaire?.steps[this.currentStepIndex]?.name}`
+    }
+
+    return stepInfo;
   }
 
   /**

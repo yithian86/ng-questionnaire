@@ -22,6 +22,7 @@ export namespace AppQuestionnaireTypings {
 
   export interface IStep {
     id: string,
+    name: string,
     questions: Array<IQuestion>
   }
 

@@ -19,9 +19,12 @@ include app-questionnaire-skeleton.partial.pug
   .AppQuestionnaire__content(*ngIf="!isWidgetInitState()")
 
     //- Current step info
-    .AppQuestionnaire__stepInfo {{getStepInfo()}}
+    .AppQuestionnaire__stepInfoWrapper
+      //-[ngStyle]="{'transform': 'translateX(' + transX + 'px)'}"
+      .AppQuestionnaire__stepBar([ngStyle]="{ 'transform': 'scaleX(' + getStepBarValue() + ')'}")
+      .AppQuestionnaire__stepInfo {{getStepInfo()}}
 
-    form([formGroup]="questionnaireFormGroup")
+    form.AppQuestionnaire__formWrapper([formGroup]="questionnaireFormGroup")
       div(formArrayName="steps")
         .AppQuestionnaire__dynamicForm(*ngFor="let question of questionnaire.steps[currentStepIndex].questions; let i = index")
 

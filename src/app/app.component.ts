@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AppTranslationService } from './app.translation.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.pug',
@@ -31,6 +32,10 @@ export class AppComponent implements OnInit, OnChanges {
 
     const pageName: string = this.router.url.substring(1, this.router.url.length);
     return `pages.${pageName}`
+  }
+
+  get appVersion(): string {
+    return environment.appVersion;
   }
 
 }

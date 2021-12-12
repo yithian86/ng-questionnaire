@@ -1,0 +1,195 @@
+// <div class="AppSkeleton">
+//  <div class="AppSkeleton__contentWrapper">
+//   <div class="AppSkeleton__figure">
+//     <div class="AppSkeleton__figure"></div>
+//   </div>
+
+//   <div class="AppSkeleton__body">
+//     <h4><div class="AppSkeleton__text AppSkeleton__text--full AppSkeleton__text--small-height"></div></h4>
+
+//     <div class="AppSkeleton__text"></div>
+//     <div class="AppSkeleton__text AppSkeleton__text--small"></div>
+//     <div class="AppSkeleton__text AppSkeleton__text--smaller"></div>
+//   </div>
+//  </div>
+// </div>
+
+// VARIABLES
+// ---- Size variables
+$skeleton-min-width: 280px;
+$skeleton-base-width: 480px;
+// ---- Animation colors variables
+$animation-color-start: #eee !default;
+$animation-color-end: #e7e7e9 !default;
+
+
+// ANIMATION STUFF
+%AppSkeleton__animation {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: $animation-color-end;
+  background-image: linear-gradient(
+    to right,
+    $animation-color-start 8%,
+    $animation-color-end 18%,
+    $animation-color-start 33%
+  );
+  background-size: 800px 104px;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 350px 0;
+  }
+}
+
+
+// SKELETON WRAPPER
+.AppSkeleton {
+  width: $skeleton-base-width;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding: 1em;
+  background: #fff;
+
+  @include xs {
+    width: 85%;
+    min-width: $skeleton-min-width;
+  }
+
+  @include sm {
+    width: 85%;
+    max-width: $skeleton-base-width;
+  }
+
+  &__contentWrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  &__figure {
+    margin-right: 1em;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+
+    + .AppSkeleton__figure {
+      margin-left: 1em;
+      margin-right: 0;
+    }
+  }
+
+
+  // SKELETON CONTENTS
+  // ---- Figure content
+  &__contentFigure {
+    margin: 0.25rem 0;
+
+    &--circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+
+      &Small {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+      }
+
+      &Big {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+      }
+    }
+
+    @extend %AppSkeleton__animation;
+  }
+
+  // ---- Spacer
+  &__spacer {
+
+    &--small {
+      height: 0.5em;
+    }
+
+    &--normal {
+      height: 1em;
+    }
+
+    &--big {
+      height: 2em;
+    }
+
+    &--bigger {
+      height: 4em;
+    }
+  }
+
+  // ---- Text content
+  &__text {
+    height: 0.8em;
+    width: 65%;
+    margin-top: 0.3em; // [1]
+    margin-bottom: 0.3em; // [1]
+    @extend %AppSkeleton__animation;
+  }
+
+  &__text--small-height {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__text--inline {
+    display: inline-block;
+  }
+
+  &__text--full {
+    width: 100%;
+  }
+
+  &__text--longer {
+    width: 85%;
+  }
+
+  &__text--long {
+    width: 75%;
+  }
+
+  &__text--short {
+    width: 60%;
+  }
+
+  &__text--shorter {
+    width: 40%;
+  }
+
+  &__text--tiny {
+    width: 25%;
+  }
+}

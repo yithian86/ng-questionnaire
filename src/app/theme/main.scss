@@ -2,6 +2,7 @@
 @import "palette";
 @import "functions";
 @import "media-queries";
+@import "skeletons";
 @import "typography";
 @import "icons/icons";
 
@@ -9,6 +10,7 @@ html, body {
   margin: 0;
   height: 100%;
   background-color: var(--primary-lightest);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
 }
 
 .AppWidgetComponent {

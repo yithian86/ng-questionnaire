@@ -6,10 +6,16 @@
       "questions": [
         {
           "id": "1",
+          "type": "TEXT",
+          "text": "What is your real name?",
+          "description": "Yeah, we <strong>DO know</strong> you're using a fake one."
+        },
+        {
+          "id": "2",
           "type": "RADIOBUTTON",
           "answer": "1.2",
           "text": "Are you hungry?",
-          "description": "Do <strong>you</strong> want some cheese?",
+          "description": "Would <strong>you</strong> fancy some cheese?",
           "options": [
             {
               "optionId": "1.1",
@@ -30,7 +36,7 @@
           ]
         },
         {
-          "id": "2",
+          "id": "3",
           "type": "RADIOBUTTON",
           "answer": null,
           "text": "Do you believe in pizza?",
@@ -61,7 +67,7 @@
           "type": "RADIOBUTTON_WITH_ICON",
           "answer": "200004",
           "text": "Which one of these jobs have you done?",
-          "description": "Give us some <strong>very</strong> personal info about you",
+          "description": "Give us some <strong>very</strong> personal infos about you",
           "options": [
             {
               "optionId": "200001",
@@ -84,6 +90,12 @@
               "optionText": "None of the above"
             }
           ]
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "What animal do you like the most?",
+          "description": "And why just doggos?"
         }
       ]
     }

@@ -1,8 +1,10 @@
 @import "src/app/theme/main.scss";
 
 .AppQuestionnaire {
-  &__radiobuttonOptions {
+  &__radiobuttonWrapper {
     flex: 1;
+    background-color: #FFF;
+    border: 1px solid var(--primary-lighter);
   }
 
   &__radiobuttonOption {
@@ -12,6 +14,10 @@
     justify-content: space-between;
     flex: 1;
 
+    &:hover {
+      color: var(--primary-base);
+    }
+
     &:not(&:last-child) {
       border-bottom: 1px solid var(--primary-lightest);
     }
@@ -20,10 +26,6 @@
   &__radiobuttonWithIconOption {
     @extend .AppQuestionnaire__radiobuttonOption;
     cursor: pointer;
-
-    &:hover {
-      color: var(--primary-base);
-    }
 
     &.is-selected {
       background-color: var(--primary-base);

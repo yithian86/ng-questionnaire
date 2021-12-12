@@ -12,38 +12,39 @@ $nano-text: 9;
 
 // GET FONT SIZE RELATED TO MEDIA QUERIES
 //----------------------------------------------------------------------
-@mixin font-size($size) {
+@mixin BaseText($size) {
   font-size: rem-calc($size, $default-font-size);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
 }
 
 @mixin HugeText {
-  @include font-size($huge-text);
+  @include BaseText($huge-text);
 }
 
 @mixin BiggerText {
-  @include font-size($bigger-text);
+  @include BaseText($bigger-text);
 }
 
 @mixin BigText {
-  @include font-size($big-text);
+  @include BaseText($big-text);
 }
 
 @mixin NormalText {
-  @include font-size($normal-text);
+  @include BaseText($normal-text);
 }
 
 @mixin SmallText {
-  @include font-size($small-text);
+  @include BaseText($small-text);
 }
 
 @mixin MiniText {
-  @include font-size($mini-text);
+  @include BaseText($mini-text);
 }
 
 @mixin MicroText {
-  @include font-size($micro-text);
+  @include BaseText($micro-text);
 }
 
 @mixin NanoText {
-  @include font-size($nano-text);
+  @include BaseText($nano-text);
 }

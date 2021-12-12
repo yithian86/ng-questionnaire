@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 
 // Form Components
 import { RadiobuttonComponent } from '../components/radiobutton/radiobutton.component';
+import { InputTextComponent } from '../components/input-text/input-text.component';
 
 // Interfaces
 import { AppQuestionnaireTypings as WidgetTypings } from '../model/app-questionnaire.interfaces';
@@ -18,7 +19,7 @@ const components: { [type: string]: Type<WidgetTypings.IField> } = {
   [FIELD_TYPE.RADIOBUTTON]: RadiobuttonComponent,
   [FIELD_TYPE.RADIOBUTTON_WITH_ICON]: RadiobuttonComponent,
   // [FIELD_TYPE.SELECT]: SelectComponent,
-  // [FIELD_TYPE.TEXT]: TextComponent
+  [FIELD_TYPE.TEXT]: InputTextComponent
 };
 
 @Directive({

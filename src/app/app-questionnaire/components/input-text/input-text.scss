@@ -1,0 +1,23 @@
+@import "src/app/theme/main.scss";
+
+.AppQuestionnaire {
+  &__inputTextWrapper {
+    background-color: #FFF;
+  }
+
+  &__inputText {
+    @include NormalText;
+    color: var(--primary-dark);
+    padding: 12px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 1rem var(--primary-dark);
+    opacity: 0.6;
+
+    &:focus {
+      box-shadow: 0 0 1rem var(--primary-medium-light);
+      opacity: 1;
+    }
+  }
+}

@@ -10,8 +10,9 @@ export namespace AppQuestionnaireTypings {
   }
 
   export interface IOption {
-    id: string;
-    text: string;
+    optionId: string;
+    optionText: string;
+    optionIcon?: string;
   }
 
   export interface IQuestionnaire {

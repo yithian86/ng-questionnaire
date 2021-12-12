@@ -1,14 +1,32 @@
 .AppQuestionnaire__radiobuttonOptions([formGroup]="group")
-  .AppQuestionnaire__radiobuttonOption(*ngFor="let option of config.options; let i = index")
-    input.AppQuestionnaire__radiobuttonInput(
-      type="radio",
-      [attr.id]="getRadiobuttonId(i)",
-      [attr.disabled]="isDisabled",
-      [value]="option.optionId",
-      [formControlName]="config.id"
+
+  //- Default radio buttons
+  ng-container(*ngIf="config.type === FIELD_TYPE.RADIOBUTTON")
+    .AppQuestionnaire__radiobuttonOption(*ngFor="let option of config.options; let i = index")
+      input.AppQuestionnaire__radiobuttonInput(
+        type="radio",
+        [attr.id]="getRadiobuttonId(i)",
+        [attr.disabled]="isDisabled",
+        [value]="option.optionId",
+        [formControlName]="config.id"
+      )
+
+      label.AppQuestionnaire__radiobuttonText(
+        [attr.for]="getRadiobuttonId(i)",
+        [innerHtml]="option.optionText"
+      )
+
+  //- Radio buttons with icons
+  ng-container(*ngIf="config.type === FIELD_TYPE.RADIOBUTTON_WITH_ICON")
+    .AppQuestionnaire__radiobuttonWithIconOption(
+      *ngFor="let option of config.options; let i = index",
+      [ngClass]="{'is-selected': isSelectedOption(option)}",
+      (click)="setSelectedOption(option)"
     )
 
-    label.AppQuestionnaire__radiobuttonText(
-      [attr.for]="getRadiobuttonId(i)",
-      [innerHtml]="option.optionText"
-    )
+      .AppQuestionnaire__radiobuttonIcon
+        span([attr.class]="option.optionIcon")
+
+      .AppQuestionnaire__radiobuttonText(
+        [innerHtml]="option.optionText"
+      )

@@ -1,23 +1,44 @@
+@import "src/app/theme/main.scss";
+
 .AppQuestionnaire {
   &__radiobuttonOptions {
     flex: 1;
   }
 
   &__radiobuttonOption {
-    height: 64px;
+    min-height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex: 1;
-    padding: 0 12px;
 
     &:not(&:last-child) {
       border-bottom: 1px solid var(--primary-lightest);
     }
   }
 
+  &__radiobuttonWithIconOption {
+    @extend .AppQuestionnaire__radiobuttonOption;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary-base);
+    }
+
+    &.is-selected {
+      background-color: var(--primary-base);
+      color: #FFF;
+    }
+  }
+
+  &__radiobuttonIcon {
+    @include BiggerText;
+    margin: 0;
+    padding: 24px;
+  }
+
   &__radiobuttonInput {
-    margin-right: 8px;
+    margin: 0 16px;
     cursor: pointer;
   }
 
@@ -26,6 +47,7 @@
     display: flex;
     align-items: center;
     flex: 1;
+    padding-right: 16px;
     cursor: pointer;
   }
 }

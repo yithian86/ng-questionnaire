@@ -58,25 +58,29 @@
       "questions": [
         {
           "id": "1",
-          "type": "RADIOBUTTON",
+          "type": "RADIOBUTTON_WITH_ICON",
           "answer": "200004",
           "text": "Which one of these jobs have you done?",
           "description": "Give us some <strong>very</strong> personal info about you",
           "options": [
             {
               "optionId": "200001",
+              "optionIcon": "fa-solid fa-helmet-safety",
               "optionText": "Miner"
             },
             {
               "optionId": "200002",
+              "optionIcon": "fa-solid fa-house-user",
               "optionText": "Housewife/Househusband"
             },
             {
               "optionId": "200003",
+              "optionIcon": "fa-solid fa-cheese",
               "optionText": "I am cheese"
             },
             {
               "optionId": "200004",
+              "optionIcon": "fa-solid fa-not-equal",
               "optionText": "None of the above"
             }
           ]

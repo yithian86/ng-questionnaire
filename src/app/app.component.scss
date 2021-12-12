@@ -33,7 +33,7 @@
   }
 
   &__headerText {
-    font-size: 24px;
+    @include BiggerText;
   }
 
   // CONTENT
@@ -55,6 +55,7 @@
 
   // FOOTER
   &__footer {
+    @include SmallText;
     height: 24px;
   }
 

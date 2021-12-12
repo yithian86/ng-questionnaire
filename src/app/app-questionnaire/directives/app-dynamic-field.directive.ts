@@ -16,6 +16,7 @@ const components: { [type: string]: Type<WidgetTypings.IField> } = {
   // [FIELD_TYPE.FREE_TEXT]: FreeTextComponent,
   // [FIELD_TYPE.PERCENTAGE]: PercentageComponent,
   [FIELD_TYPE.RADIOBUTTON]: RadiobuttonComponent,
+  [FIELD_TYPE.RADIOBUTTON_WITH_ICON]: RadiobuttonComponent,
   // [FIELD_TYPE.SELECT]: SelectComponent,
   // [FIELD_TYPE.TEXT]: TextComponent
 };
@@ -23,7 +24,7 @@ const components: { [type: string]: Type<WidgetTypings.IField> } = {
 @Directive({
   selector: '[app-dynamic-field]'
 })
-export class AppDynamicFieldDirective implements WidgetTypings.IField, OnChanges, OnInit {
+export class AppDynamicFieldDirective implements WidgetTypings.IField, OnInit {
   @Input() config: WidgetTypings.IQuestion;
   @Input() group: FormGroup;
   @Input() currency?: string;
@@ -43,9 +44,7 @@ export class AppDynamicFieldDirective implements WidgetTypings.IField, OnChanges
         Supported types: ${supportedTypes}`
       );
     }
-  }
 
-  ngOnChanges() {
     this.viewContainer.clear();
     const component = this.resolver.resolveComponentFactory<WidgetTypings.IField>(components[this.config.type]);
     this.component = this.viewContainer.createComponent(component);

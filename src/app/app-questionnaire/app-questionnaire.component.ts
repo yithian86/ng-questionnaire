@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AppWidgetComponent } from '../app.widget.component';
 import { AppQuestionnaireService } from './services/app-questionnaire.service';
 import { AppQuestionnaireTypings as WidgetTypings } from './model/app-questionnaire.interfaces';
@@ -56,16 +56,39 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
   }
 
   /**
-   * @description Build a form group containing all the form controls corresponding to the view questions
+   * @description returns the 'steps' form array from the main form
    */
-  public setFormGroup(): void {
-    this.questionnaireFormGroup = this.formBuilder.group({});
-    this.questionnaire.steps[this.currentStepIndex].questions
-      .forEach((question: WidgetTypings.IQuestion) => {
-        this.questionnaireFormGroup.addControl(question.id, new FormControl(question.options))
-      });
+  private get stepsFormArray(): FormArray {
+    return (this.questionnaireFormGroup.get('steps') as FormArray);
   }
 
+  /**
+   * @description used in the view. Returns the form related to the currently displayed step
+   */
+  public get currentStepForm(): FormGroup {
+    return (this.stepsFormArray.at(this.currentStepIndex) as FormGroup);
+  }
+
+
+  /**
+   * @description main form initializer
+   */
+  public setFormGroup(): void {
+    this.questionnaireFormGroup = this.formBuilder.group({
+      steps: new FormArray([])
+    });
+
+    this.questionnaire.steps
+      .forEach((step: WidgetTypings.IStep) => {
+        this.stepsFormArray.push(this.generateStepQuestionnaire(step));
+      })
+  }
+
+  /**
+   *
+   * @param increment
+   * @description navigates through the questionnaire steps and updates the current step index
+   */
   public updateStep = (increment: number): void => {
     // Check if this is the first step
     if (increment <= 0 && this.currentStepIndex === 0) {
@@ -78,6 +101,20 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
     }
 
     this.currentStepIndex += increment;
+  }
+
+  /**
+   *
+   * @param step
+   * @returns generates a form with all the questions related to the given step
+   */
+  private generateStepQuestionnaire = (step: WidgetTypings.IStep) => {
+    const questionnaireFormGroup: FormGroup = this.formBuilder.group({});
+    step.questions
+      .forEach((question: WidgetTypings.IQuestion) => {
+        questionnaireFormGroup.addControl(question.id, new FormControl(question.options))
+      });
+    return questionnaireFormGroup;
   }
 
 }

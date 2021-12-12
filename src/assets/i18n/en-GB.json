@@ -1,9 +1,14 @@
 {
+  "landingpage": {
+    "title": "Questionnaire",
+    "cta.text": "Start the questionnaire!"
+  },
   "pages": {
-    "landingpage": "Home",
+    "dashboard": "Home",
     "questionnaire": "Questionnaire"
   },
   "questionnaire": {
+    "flash.message.success": "The questionnaire has been completed successfully!",
     "step.info.text": "Step {{currentStep}} of {{totalSteps}}"
   }
 }

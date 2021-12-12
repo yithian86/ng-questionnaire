@@ -4,6 +4,7 @@ import { AppWidgetComponent } from '../app.widget.component';
 import { AppQuestionnaireService } from './services/app-questionnaire.service';
 import { AppQuestionnaireTypings as WidgetTypings } from './model/app-questionnaire.interfaces';
 import { TranslateService } from '@ngx-translate/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-app-questionnaire',
@@ -19,9 +20,10 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
   public questionnaireFormGroup: FormGroup;
 
   constructor(
-    public widgetService: AppQuestionnaireService,
+    private widgetService: AppQuestionnaireService,
     private translateService: TranslateService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     super();
   }
@@ -34,7 +36,6 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
     this.widgetService.retrieveQuestionnaire()
       .subscribe({
         next: (data: any) => {
-          console.debug('OK', data);
           this.questionnaire = data;
           this.setFormGroup();
 
@@ -111,6 +112,31 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
     }
 
     this.currentStepIndex += increment;
+  }
+
+  public submitQuestionnaire = (): void => {
+    this.setWidgetWaitingState();
+
+    this.widgetService.submitQuestionnaire(this.questionnaireFormGroup.value)
+      .subscribe({
+        next: (data: any) => {
+          // Dispatch a message box
+          var evt = new CustomEvent("flashMessage:open", {
+            detail: "questionnaire.flash.message.success"
+          });
+          window.dispatchEvent(evt);
+
+          // Go back to the Dashboard
+          this.router.navigate(['/', 'dashboard']);
+
+          this.setWidgetReadyState();
+        },
+        error: (reason: any) => {
+          console.error('ERROR:', reason);
+
+          this.setWidgetErrorState();
+        }
+      })
   }
 
   /**

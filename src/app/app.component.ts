@@ -12,6 +12,8 @@ import { AppTranslationService } from './app.translation.service';
 })
 export class AppComponent implements OnInit, OnChanges {
 
+  public flashMessage: string;
+
   constructor(
     private router: Router,
     private translationService: AppTranslationService
@@ -21,6 +23,8 @@ export class AppComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     const locale: string = localStorage.getItem('locale') || environment.defaultLocale;
     this.translationService.init(locale);
+
+    this.registerEvents();
   }
 
   ngOnChanges(changes: SimpleChanges): void {}
@@ -36,6 +40,13 @@ export class AppComponent implements OnInit, OnChanges {
 
   get appVersion(): string {
     return environment.appVersion;
+  }
+
+  private registerEvents = (): void => {
+    //Listen for the event
+    window.addEventListener("flashMessage:open", (e: any) => {
+      this.flashMessage = e.detail;
+    }, false);
   }
 
 }

@@ -18,13 +18,13 @@ include app-questionnaire-skeleton.partial.pug
   //- WIDGET CONTENT (READY STATE)
   .AppQuestionnaire__content(*ngIf="!isWidgetInitState()")
 
-    //- Current step info
+    //- Step Bar
     .AppQuestionnaire__stepInfoWrapper
-      //-[ngStyle]="{'transform': 'translateX(' + transX + 'px)'}"
       .AppQuestionnaire__stepBar--full
       .AppQuestionnaire__stepBar([ngStyle]="{ 'transform': 'scaleX(' + getStepBarValue() + ')'}")
       .AppQuestionnaire__stepInfo {{getStepInfo()}}
 
+    //- Form content
     form.AppQuestionnaire__formWrapper([formGroup]="questionnaireFormGroup")
       div(formArrayName="steps")
         .AppQuestionnaire__dynamicForm(*ngFor="let question of questionnaire.steps[currentStepIndex].questions; let i = index")
@@ -51,12 +51,19 @@ include app-questionnaire-skeleton.partial.pug
 
     //- NAVIGATION BUTTONS
     .AppQuestionnaire__navigationButtons
-      .AppQuestionnaire__ctaPrevious(
+      .AppQuestionnaire__ctaPrev(
         [ngClass]="{'is-disabled': currentStepIndex === 0}",
         (click)="updateStep(-1)"
-      ) << Prev
+      ) < Prev
 
       .AppQuestionnaire__ctaNext(
-        [ngClass]="{'is-disabled': currentStepIndex === questionnaire.steps.length - 1}",
+        *ngIf="currentStepIndex < questionnaire.steps.length - 1",
+        [ngClass]="{'is-disabled': false}",
         (click)="updateStep(1)"
-      ) Next >>
+      ) Next >
+
+      .AppQuestionnaire__ctaSubmit(
+        *ngIf="currentStepIndex === questionnaire.steps.length - 1",
+        [ngClass]="{'is-disabled': false}",
+        (click)="submitQuestionnaire()"
+      ) Submit

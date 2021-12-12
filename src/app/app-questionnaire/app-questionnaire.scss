@@ -90,9 +90,12 @@
     display: flex;
     justify-content: center;
     padding: 16px;
+  }
 
-    > * {
-      display: flex;
+  &__ctaPrev,
+  &__ctaNext,
+  &__ctaSubmit {
+    display: flex;
       justify-content: center;
       width: 80px;
       padding: 8px;
@@ -112,6 +115,13 @@
         background-color: var(--neutral-medium-dark);
         cursor: default;
       }
+  }
+
+  &__ctaSubmit {
+    background-color: $mood-good;
+
+    &:hover {
+      background-color:  #{mix(#FFF, $mood-good, 40)};
     }
   }
 }

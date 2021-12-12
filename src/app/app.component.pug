@@ -1,12 +1,20 @@
 .AppComponent
+  //- MESSAGE BOX
+  .AppComponent__messageBox([ngClass]="{ 'is-hidden': !flashMessage }")
+    .AppComponent__messageBoxText {{ flashMessage | translate }}
+    .AppComponent__messageBoxCta((click)="flashMessage = ''") X
+
+  //- HEADER
   .AppComponent__header
     .AppComponent__headerText {{ pageTitle | translate }}
     nav.AppComponent__headerTrayIcons
       .AppComponent__icon.fa-solid.fa-house(routerLink="/")
 
+  //- CONTENT
   .AppComponent__content
     router-outlet
 
+  //- FOOTER
   .AppComponent__footer
     .AppComponent__footerText Angular Questionnaire v{{appVersion}} © Copyright 2021 by yithian86 (Alex Cinelli)
     .AppComponent__footerLinks

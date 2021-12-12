@@ -1,11 +1,11 @@
 .AppLandingPage
 
   .AppLandingPage__userInfo
-    .AppLandingPage__title HOME
+    .AppLandingPage__title {{ 'landingpage.title' | translate }}
 
     .AppLandingPage__startQuestionnaireCta(
       (click)="goToQuestionnaire()"
-    ) Start the queshonniah!
+    ) {{ 'landingpage.cta.text' | translate }}
 
 
   .AppLandingPage__userStats

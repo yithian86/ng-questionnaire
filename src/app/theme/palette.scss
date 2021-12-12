@@ -4,6 +4,9 @@ $primary-base: #5f9ea0;
 $secondary-base: #008fb3;
 $tertiary-base: #4f748e;
 $neutral-base: #e6e6e6;
+$mood-good: #00BB00;
+$mood-bad: #BB0000;
+$mood-medium: #DDDD00;
 
 :root {
   // PRIMARY PALETTE MAP
@@ -43,9 +46,14 @@ $neutral-base: #e6e6e6;
   --neutral-lightest: #{mix(#FFF, $neutral-base, 30)};
   --neutral-light: #{mix(#FFF, $neutral-base, 20)};
   --neutral-medium-light: #{mix(#FFF, $neutral-base, 10)};
-  --neutral-base: $neutral-base;
+  --neutral-base: #{$neutral-base};
   --neutral-medium-dark: #{mix(#000, $neutral-base, 10)};
   --neutral-dark: #{mix(#000, $neutral-base, 20)};
   --neutral-darker: #{mix(#000, $neutral-base, 40)};
   --neutral-darkest: #{mix(#000, $neutral-base, 60)};
+
+  // MOOD COLORS
+  --mood-good: #{$mood-good};
+  --mood-bad: #{$mood-bad};
+  --mood-medium: #{$mood-medium};
 }

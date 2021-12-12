@@ -10,11 +10,11 @@ const APP_ROUTES: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'landingpage',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       },
       {
-        path: 'landingpage',
+        path: 'dashboard',
         component: AppLandingPageComponent
       },
       {

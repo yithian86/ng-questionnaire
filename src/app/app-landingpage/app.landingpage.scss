@@ -22,14 +22,14 @@
     display: flex;
     align-items: center;
     padding: 8px;
-    background-color: var(--secondary-base);
+    background-color: var(--primary-base);
     border-radius: 4px;
     color: white;
     width: max-content;
     cursor: pointer;
 
     &:hover {
-      background-color: var(--secondary-light);
+      background-color: var(--primary-light);
     }
   }
 

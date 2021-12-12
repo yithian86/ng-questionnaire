@@ -6,6 +6,45 @@
   justify-content: space-between;
   flex-direction: column;
 
+  // MESSAGE BOX
+  &__messageBox {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self: center;
+    transition: top 1s ease 0s;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 0;
+    z-index: 1000;
+    background-color: var(--mood-good);
+    @include SmallText;
+    color: #FFF;
+    cursor: default;
+
+    &.is-hidden {
+      top: -80px;
+    }
+
+    & > * {
+      padding: 0 12px;
+    }
+  }
+
+  &__messageBoxText {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__messageBoxCta {
+    cursor: pointer;
+  }
+
   &__header, &__footer {
     display: flex;
     justify-content: space-between;

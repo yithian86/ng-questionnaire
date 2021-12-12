@@ -44,6 +44,12 @@
     transition: transform 0.5s linear;
   }
 
+  &__stepBar--full {
+    @extend .AppQuestionnaire__stepBar;
+    transform: scaleX(1);
+    background: var(--primary-light);
+  }
+
   &__stepInfo {
     @include SmallText;
     color: var(--tertiary-base);

@@ -21,6 +21,7 @@ include app-questionnaire-skeleton.partial.pug
     //- Current step info
     .AppQuestionnaire__stepInfoWrapper
       //-[ngStyle]="{'transform': 'translateX(' + transX + 'px)'}"
+      .AppQuestionnaire__stepBar--full
       .AppQuestionnaire__stepBar([ngStyle]="{ 'transform': 'scaleX(' + getStepBarValue() + ')'}")
       .AppQuestionnaire__stepInfo {{getStepInfo()}}
 

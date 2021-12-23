@@ -1,6 +1,8 @@
 import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { AppEventsService } from './app.events.service';
+import { AppTypings } from './app.interfaces';
 import { AppTranslationService } from './app.translation.service';
 
 
@@ -16,7 +18,8 @@ export class AppComponent implements OnInit, OnChanges {
 
   constructor(
     private router: Router,
-    private translationService: AppTranslationService
+    private translationService: AppTranslationService,
+    private eventsService: AppEventsService
   ) {
   }
 
@@ -27,7 +30,7 @@ export class AppComponent implements OnInit, OnChanges {
     this.registerEvents();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void { }
 
   get pageTitle(): string {
     if (!this.router?.url) {
@@ -44,9 +47,10 @@ export class AppComponent implements OnInit, OnChanges {
 
   private registerEvents = (): void => {
     //Listen for the event
-    window.addEventListener("flashMessage:open", (e: any) => {
-      this.flashMessage = e.detail;
-    }, false);
+    this.eventsService.flashMessageEmitter.subscribe(
+      (flashMessageData: AppTypings.IFlashMessageData) => {
+        this.flashMessage = flashMessageData.label;
+      });
   }
 
 }

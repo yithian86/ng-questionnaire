@@ -5,9 +5,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
 
 
-@Injectable({  providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AppTranslationService {
-  constructor(private translateService: TranslateService) {}
+  constructor(private translateService: TranslateService) { }
 
   init(locale: string) {
     this.translateService.addLangs(['en-GB', 'it-IT']);

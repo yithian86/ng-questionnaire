@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLandingPageModule } from './app-landingpage/app.landingpage.module';
 import { AppQuestionnaireModule } from './app-questionnaire/app.questionnaire.module';
+import { AppEventsService } from './app.events.service';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import { AppQuestionnaireModule } from './app-questionnaire/app.questionnaire.mo
       useFactory: AppTranslationService.translationInitializer,
       deps: [AppTranslationService],
       multi: true
-   }
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

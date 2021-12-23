@@ -4,7 +4,9 @@ import { AppWidgetComponent } from '../app.widget.component';
 import { AppQuestionnaireService } from './services/app-questionnaire.service';
 import { AppQuestionnaireTypings as WidgetTypings } from './model/app-questionnaire.interfaces';
 import { TranslateService } from '@ngx-translate/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AppEventsService } from '../app.events.service';
+import { AppTypings } from '../app.interfaces';
 
 @Component({
   selector: 'app-app-questionnaire',
@@ -23,7 +25,8 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
     private widgetService: AppQuestionnaireService,
     private translateService: TranslateService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private appEventsService: AppEventsService
   ) {
     super();
   }
@@ -121,10 +124,10 @@ export class AppQuestionnaireComponent extends AppWidgetComponent implements OnI
       .subscribe({
         next: (data: any) => {
           // Dispatch a message box
-          var evt = new CustomEvent("flashMessage:open", {
-            detail: "questionnaire.flash.message.success"
-          });
-          window.dispatchEvent(evt);
+          this.appEventsService.flashMessageEmitter.emit({
+            label: "questionnaire.flash.message.success",
+            type: AppTypings.FLASH_MESSAGE_TYPES.SUCCESS
+          })
 
           // Go back to the Dashboard
           this.router.navigate(['/', 'dashboard']);

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-landing-page',
   templateUrl: './app.landingpage.pug',
   styleUrls: ['./app.landingpage.scss'],
   encapsulation: ViewEncapsulation.None

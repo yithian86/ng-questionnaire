@@ -1,0 +1,10 @@
+@import "src/app/theme/main.scss";
+
+.AppQuestionnaireStats {
+  flex-direction: column;
+  flex: 1;
+
+  #chart {
+    margin: 32px 16px;
+  }
+}
